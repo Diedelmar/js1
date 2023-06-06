@@ -91,7 +91,7 @@ header {
   color: #fff;
 }
 
-/* Estilos para el carrito de compras */
+
 #carrito {
   background-color: #fff;
   border-radius: 10px;
@@ -133,7 +133,7 @@ header {
   color: #fff;
 }
 
-/* Estilos adicionales */
+
 .alert {
   background-color: #f44336;
   color: #fff;
@@ -142,4 +142,26 @@ header {
   border-radius: 5px;
   margin-bottom: 20px;
 }
-    
+.shipping-option {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.shipping-option h3 {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.shipping-option p {
+  margin-bottom: 10px;
+}
+
+.shipping-option label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.shipping-option input[type="checkbox"] {
+  margin-left: 5px;
+}

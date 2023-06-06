@@ -5,6 +5,7 @@ const productos = [
 ];
 
 let carrito = [];
+let envioCosto = 2500;
 
 function mostrarProductos() {
   const productosDiv = document.getElementById('productos');
@@ -66,7 +67,11 @@ function quitarDelCarrito(idProducto) {
 
 function actualizarTotal() {
   const total = document.getElementById('total');
-  const precioTotal = carrito.reduce((total, item) => total + item.producto.precio * item.cantidad, 0);
+  let precioTotal = carrito.reduce((total, item) => total + item.producto.precio * item.cantidad, 0);
+
+  if (document.getElementById('shipping-checkbox').checked) {
+    precioTotal += envioCosto;
+  }
 
   total.innerText = precioTotal.toFixed(2);
 }
