@@ -18,24 +18,40 @@
         <li>Ofertas</li>
         <li>Contacto</li>
         <li>
-        
-            <div class="cart-container">
-              <span class="cart-icon">&#128722;</span>
-              <span class="cart-count">3</span>
-            </div>
-            <div id="parent-element">
-            <div id="product-list"></div>
-          </div>
-          </div>
-      </li>
-      </ul>
-    </div>
+         </div>
   </header>
-  <h2>Menu</h2>
-  <div id="card-container"></div>
-  <div class="card">
-    
-                    
+ 
+  <div id="productos">
+    <div class="card">
+      <img src="producto1.jpg" alt="Producto 1">
+      <h3>Producto 1</h3>
+      <p>Precio: $10</p>
+      <button>Comprar</button>
+    </div>
+  
+    <div class="card">
+      <img src="producto2.jpg" alt="Producto 2">
+      <h3>Producto 2</h3>
+      <p>Precio: $20</p>
+      <button>Comprar</button>
+    </div>
+  
+    <div class="card">
+      <img src="producto3.jpg" alt="Producto 3">
+      <h3>Producto 3</h3>
+      <p>Precio: $30</p>
+      <button>Comprar</button>
+    </div>
+                      
+  </div>
+
+  <div id="carrito">
+    <h2>Carrito de compras</h2>
+    <ul id="lista-carrito"></ul>
+    <p>Total: $<span id="total">0.00</span></p>
+    <button id="btn-comprar">Comprar</button>
+  </div>
+  
 <script src="mean.js"></script>
 </body>
 </html>
