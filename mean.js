@@ -36,13 +36,18 @@ function agregarAlCarrito(idProducto) {
     producto.cantidad--;
 
     if (producto.cantidad === 1) {
-      alert('¡Última existencia del producto!');
+      mostrarMensaje('¡Última existencia del producto!');
     }
 
     mostrarCarrito();
   } else {
-    alert('Producto agotado');
+    mostrarMensaje('Producto agotado');
   }
+}
+
+function mostrarMensaje(mensaje) {
+  const mensajeDiv = document.getElementById('mensaje');
+  mensajeDiv.innerText = mensaje;
 }
 
 function mostrarCarrito() {
@@ -79,7 +84,7 @@ function actualizarTotal() {
 document.getElementById('btn-comprar').addEventListener('click', function() {
   carrito = [];
   mostrarCarrito();
-  alert('Gracias por tu compra');
+  mostrarMensaje('¡Gracias por tu compra!');
 });
 
 mostrarProductos();
