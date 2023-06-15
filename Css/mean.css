@@ -1,167 +1,161 @@
 body {
-  background-color: #f8f8f8;
-  font-family: Arial, sans-serif;
+  font-family: 'Arial', sans-serif;
+  background-color: #f5f0e1;
+  color: #333;
+  margin: 0;
+  padding: 0;
 }
 
-/* Estilos para el encabezado */
-header {
-  background-color: #ffdd57;
+.container {
+  max-width: 960px;
+  margin: 0 auto;
   padding: 20px;
+}
+
+h1 {
   text-align: center;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+h2 {
+  margin-top: 30px;
+  color: #555;
+}
+
+p {
+  line-height: 1.5;
 }
 
 .navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 10px;
+  background-color: #8c6859;
+  padding: 10px;
 }
 
 .navbar-logo {
   font-size: 24px;
   font-weight: bold;
-  color: #333;
-}
-
-.navbar-menu ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.navbar-menu li {
-  display: inline-block;
-  margin-right: 10px;
-}
-
-.navbar-menu li a {
-  text-decoration: none;
-  color: #333;
-  font-size: 16px;
-  padding: 5px 10px;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
-}
-
-.navbar-menu li a:hover {
-  background-color: #333;
   color: #fff;
 }
 
-/* Estilos para los productos */
+.navbar-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.navbar-menu li {
+  margin-left: 20px;
+}
+
+.navbar-menu li:first-child {
+  margin-left: 0;
+}
+
+.navbar-menu li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.navbar-menu li a:hover {
+  text-decoration: underline;
+}
+
+#productos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+}
+
 .card {
   background-color: #fff;
-  border-radius: 10px;
+  border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 20px;
+  margin: 10px;
+  width: 300px;
   text-align: center;
-  margin-bottom: 20px;
 }
 
 .card img {
   max-width: 100%;
   height: auto;
-  border-radius: 5px;
+  border-radius: 8px;
 }
 
 .card h3 {
   font-size: 20px;
-  margin-bottom: 10px;
-  color: #333;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  color: #555;
 }
 
 .card p {
-  color: #777;
+  font-size: 16px;
   margin-bottom: 10px;
+  color: #888;
 }
 
 .card button {
-  background-color: #ffdd57;
-  color: #333;
+  background-color: #8c6859;
+  color: #fff;
   border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  font-size: 16px;
+  padding: 8px 16px;
+  font-size: 14px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
 .card button:hover {
-  background-color: #333;
-  color: #fff;
-}
-
-
-#carrito {
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  margin-bottom: 20px;
-}
-
-#carrito h2 {
-  font-size: 24px;
-  margin-bottom: 10px;
-  color: #333;
+  background-color: #5d4238;
 }
 
 #lista-carrito {
-  list-style: none;
+  list-style-type: none;
   padding: 0;
-  margin: 0;
 }
 
 #lista-carrito li {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+#mensaje {
+  font-weight: bold;
   margin-bottom: 10px;
-  color: #333;
+  color: #555;
+}
+
+#total {
+  font-weight: bold;
+  color: #555;
 }
 
 #btn-comprar {
-  background-color: #ffdd57;
-  color: #333;
+  background-color: #8c6859;
+  color: #fff;
   border: none;
   padding: 10px 20px;
-  border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
 #btn-comprar:hover {
-  background-color: #333;
-  color: #fff;
+  background-color: #5d4238;
 }
 
 
-.alert {
-  background-color: #f44336;
-  color: #fff;
-  padding: 10px;
-  text-align: center;
-  border-radius: 5px;
-  margin-bottom: 20px;
-}
-.shipping-option {
-  border: 1px solid #ccc;
-  padding: 10px;
-  margin-bottom: 20px;
+#shipping-checkbox {
+  margin-right: 5px;
 }
 
-.shipping-option h3 {
-  font-size: 20px;
-  margin-bottom: 5px;
-}
-
-.shipping-option p {
-  margin-bottom: 10px;
-}
-
-.shipping-option label {
-  display: block;
-  margin-bottom: 5px;
-}
-
-.shipping-option input[type="checkbox"] {
+label[for="shipping-checkbox"] {
+  font-size: 14px;
+  color: #555;
   margin-left: 5px;
 }
+

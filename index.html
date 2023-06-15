@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./Css/mean.css">
   </head>
- <title>Super Pizzas</title>
+ <title>Camas artesanales</title>
 </head>
 <body>
   <header>
@@ -14,55 +14,50 @@
       <div class="navbar-logo">Mi Tienda</div>
       <ul class="navbar-menu">
         <li>Inicio</li>
-        <li>Productos</li>
-        <li>Ofertas</li>
         <li>Contacto</li>
         <li>
          </div>
   </header>
- 
+
+  <input type="text" id="searchInput" placeholder="Buscar productos">
+  <button onclick="search()">Buscar</button>
+ <div id="results"></div>
+
+  <h2>Productos</h2>
   <div id="productos">
     <div class="card">
-      <img src="producto1.jpg" alt="Producto 1">
-      <h3>Producto 1</h3>
-      <p>Precio: $10</p>
-      <button>Comprar</button>
+      <img src="./fotos/king.jpg" alt="Cama King size">
+      <h3>Cama King Size</h3>
+      <p>Precio: $250000</p>
+      <button onclick="agregarAlCarrito(1)">Comprar</button>
     </div>
-  
     <div class="card">
-      <img src="producto2.jpg" alt="Producto 2">
-      <h3>Producto 2</h3>
-      <p>Precio: $20</p>
-      <button>Comprar</button>
+      <img src="./fotos/2p.jpg" alt="Cama 2 plazas">
+      <h3>Cama 2 plazas</h3>
+      <p>Precio: $250000</p>
+      <button onclick="agregarAlCarrito(2)">Comprar</button>
     </div>
-  
     <div class="card">
-      <img src="producto3.jpg" alt="Producto 3">
-      <h3>Producto 3</h3>
-      <p>Precio: $30</p>
-      <button>Comprar</button>
+      <img src="./fotos/1p.jpg" alt="Cama 1 plaza">
+      <h3>Cama 1 plaza</h3>
+      <p>Precio: $200000</p>
+      <button onclick="agregarAlCarrito(3)">Comprar</button>
     </div>
-                      
   </div>
-  <div class="shipping-option">
-    <h3>Opción de envío</h3>
-    <p>Envío a toda la Región Metropolitana</p>
-    <p>Costo: $2500 pesos</p>
-    <label for="shipping-checkbox">Agregar envío</label>
-    <input type="checkbox" id="shipping-checkbox">
-  </div>
+
+  <h2>Carrito de compras</h2>
   
-  <div id="productos"></div>
-  
-  <div id="carrito">
-    <h2>Carrito de compras</h2>
-    <ul id="lista-carrito"></ul>
-    <p>Total: $<span id="total">0.00</span> pesos</p>
-    <div id="mensaje"></div>
-    <button id="btn-comprar">Comprar</button>
-  </div>
-  
-  
+  <ul id="lista-carrito"></ul>
+
+  <p id="mensaje"></p>
+  <p>Total: $<span id="total">0.00</span></p>
+
+  <input type="checkbox" id="shipping-checkbox">
+  <label for="shipping-checkbox">Incluir envío</label>
+
+  <button id="btn-comprar">Comprar</button>
+
 <script src="mean.js"></script>
+
 </body>
 </html>
