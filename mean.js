@@ -1,33 +1,56 @@
 const productos = [
-  { id: 1, name: 'Cama King Size', precio: 250000, cantidad: 50 },
-  { id: 2, name: 'Cama 2 plazas', precio: 250000, cantidad: 35 },
-  { id: 3, name: 'Cama 1 plaza', precio: 200000, cantidad: 48 }
+  { id: 1, name: 'Cama King Size', precio: 250000, cantidad: 50, description: 'Cama matrimonial de gran tamaño' },
+  { id: 2, name: 'Cama 2 plazas', precio: 250000, cantidad: 35, description: 'Cama doble de tamaño standard' },
+  { id: 3, name: 'Cama 1 plaza', precio: 200000, cantidad: 48, description: 'Cama individual con colchón incluido' },
+  { id: 4, name: 'Escritorio', precio: 80000, cantidad: 40, description: 'Rustico Madera' },
+  { id: 5, name: 'Sillon 2 cuerpos', precio:250000, cantidad: 30, description: 'Tapizado Eco cuero'},
+  { id: 6, name: 'Sillon vintage', precio: 400000, cantidad: 15, description: 'Diseño exclusivo'}
 ];
 
+function search() {
+  const searchInput = document.getElementById('searchInput');
+  const resultsContainer = document.getElementById('results');
+  const searchText = searchInput.value.trim().toLowerCase();
+  
+
+  resultsContainer.innerHTML = '';
+
+  
+  const matchingProducts = productos.filter(producto =>
+    producto.name.toLowerCase().includes(searchText)
+  );
+
+  if (matchingProducts.length > 0) {
+    matchingProducts.forEach(producto => {
+      const resultItem = document.createElement('p');
+      resultItem.textContent = `Producto: ${producto.name}, Stock: ${producto.cantidad}`;
+      resultsContainer.appendChild(resultItem);
+    });
+  } else {
+    const noResults = document.createElement('p');
+    noResults.textContent = 'No se encontraron productos.';
+    resultsContainer.appendChild(noResults);
+  }
+
+
+}
 let carrito = [];
 
 const envioCosto = 5000; // Costo del envío
-
-document.getElementById('btn-buscar').addEventListener('click', function() {
-  const searchTerm = document.getElementById("searchInput").value;
-  searchInProducts(searchTerm);
-});
 
 function searchInProducts(searchTerm) {
   const resultsContainer = document.getElementById("results");
   resultsContainer.innerHTML = "";
 
-  const filteredProducts = productos.filter(function(product) {
-    return product.name.toLowerCase().includes(searchTerm.toLowerCase());
-  });
+  const filteredProducts = productos.filter(product => product.name.toLowerCase().includes(searchTerm.toLowerCase()));
 
   if (filteredProducts.length > 0) {
-    filteredProducts.forEach(function(product) {
+    filteredProducts.forEach(product => {
       const productElement = document.createElement("div");
       productElement.innerHTML = `<h3>${product.name}</h3><p>Precio: $${product.precio.toFixed(2)}</p>`;
       const addButton = document.createElement("button");
       addButton.textContent = "Agregar al carrito";
-      addButton.addEventListener("click", function() {
+      addButton.addEventListener("click", () => {
         agregarAlCarrito(product.id);
       });
       productElement.appendChild(addButton);
@@ -57,7 +80,7 @@ function mostrarProductos() {
 }
 
 function agregarAlCarrito(idProducto) {
-  const producto = productos.find(p => p.id === idProducto);
+  const producto = productos.find(product => product.id === idProducto);
 
   if (!producto || producto.cantidad === 0) {
     mostrarMensaje('Producto agotado');
@@ -95,7 +118,7 @@ function quitarDelCarrito(idProducto) {
     carrito = carrito.filter(item => item.producto.id !== idProducto);
   }
 
-  const producto = productos.find(p => p.id === idProducto);
+  const producto = productos.find(product => product.id === idProducto);
   producto.cantidad++;
 
   guardarCarritoEnAlmacenamientoLocal();
@@ -134,7 +157,7 @@ document.getElementById('btn-comprar').addEventListener('click', () => {
 
 function mostrarMensaje(mensaje) {
   const mensajeDiv = document.getElementById('mensaje');
-  mensajeDiv.innerText = mensaje;
+  mensajeDiv.textContent = mensaje;
 }
 
 function mostrarCarrito() {

@@ -5,28 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./Css/mean.css">
-  </head>
- <title>Camas artesanales</title>
+    <title>Muebleria</title>
 </head>
 <body>
   <header>
     <div class="navbar">
-      <div class="navbar-logo">Mi Tienda</div>
+      <div class="navbar-logo">Muebleria</div>
       <ul class="navbar-menu">
-        <li>Inicio</li>
-        <li>Contacto</li>
-        <li>
-         </div>
+        <li><a href="./index.html">Inicio</a></li>
+        <li><a href="./pages/contacto.html">Contacto</a></li>
+      </ul>
+    </div>
   </header>
-
   <input type="text" id="searchInput" placeholder="Buscar productos">
   <button onclick="search()">Buscar</button>
- <div id="results"></div>
-
+  <div id="results"></div>
   <h2>Productos</h2>
   <div id="productos">
-    <div class="card">
-      <img src="./fotos/king.jpg" alt="Cama King size">
+    <div class="card ">
+      <img src="./fotos/King.jpg"  alt="Cama king Size">
       <h3>Cama King Size</h3>
       <p>Precio: $250000</p>
       <button onclick="agregarAlCarrito(1)">Comprar</button>
@@ -43,8 +40,26 @@
       <p>Precio: $200000</p>
       <button onclick="agregarAlCarrito(3)">Comprar</button>
     </div>
+    <div class="card">
+      <img src="./fotos/Escritorio.jpg" alt="Escritorio">
+      <h3>Escritorio</h3>
+      <p>Precio: $80000</p>
+      <button onclick="agregarAlCarrito(4)">Comprar</button>
+    </div>
+    <div class="card">
+      <img src="./fotos/Sillon 2 cuerpos.jpg" alt="Sillon 2 cuerpos">
+      <h3>Sillon 2 Cuerpos</h3>
+      <p>Precio: $250000</p>
+      <button onclick="agregarAlCarrito(5)">Comprar</button>
+    </div>
+    <div class="card">
+      <img src="./fotos/Sillon vintage.jpg" alt="Sillon vintage">
+      <h3>Sillon vintage</h3>
+      <p>Precio: $400000</p>
+      <button onclick="agregarAlCarrito(6)">Comprar</button>
+    </div>
   </div>
-
+  
   <h2>Carrito de compras</h2>
   
   <ul id="lista-carrito"></ul>
@@ -56,8 +71,7 @@
   <label for="shipping-checkbox">Incluir envío</label>
 
   <button id="btn-comprar">Comprar</button>
-
-<script src="mean.js"></script>
-
+  
+  <script src="./mean.js"></script>
 </body>
 </html>
