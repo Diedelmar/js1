@@ -1,21 +1,23 @@
+//conts. productos
+
 const productos = [
   { id: 1, name: 'Cama King Size', precio: 250000, cantidad: 50, description: 'Cama matrimonial de gran tamaño' },
   { id: 2, name: 'Cama 2 plazas', precio: 250000, cantidad: 35, description: 'Cama doble de tamaño standard' },
   { id: 3, name: 'Cama 1 plaza', precio: 200000, cantidad: 48, description: 'Cama individual con colchón incluido' },
   { id: 4, name: 'Escritorio', precio: 80000, cantidad: 40, description: 'Rustico Madera' },
-  { id: 5, name: 'Sillon 2 cuerpos', precio:250000, cantidad: 30, description: 'Tapizado Eco cuero'},
-  { id: 6, name: 'Sillon vintage', precio: 400000, cantidad: 15, description: 'Diseño exclusivo'}
+  { id: 5, name: 'Sillon 2 cuerpos', precio: 250000, cantidad: 30, description: 'Tapizado Eco cuero' },
+  { id: 6, name: 'Sillon vintage', precio: 400000, cantidad: 15, description: 'Diseño exclusivo' }
 ];
+
+//buscador
 
 function search() {
   const searchInput = document.getElementById('searchInput');
   const resultsContainer = document.getElementById('results');
   const searchText = searchInput.value.trim().toLowerCase();
-  
 
   resultsContainer.innerHTML = '';
 
-  
   const matchingProducts = productos.filter(producto =>
     producto.name.toLowerCase().includes(searchText)
   );
@@ -31,53 +33,12 @@ function search() {
     noResults.textContent = 'No se encontraron productos.';
     resultsContainer.appendChild(noResults);
   }
-
-
 }
-let carrito = [];
+// carrito
 
+let carrito = [];
 const envioCosto = 5000; // Costo del envío
 
-function searchInProducts(searchTerm) {
-  const resultsContainer = document.getElementById("results");
-  resultsContainer.innerHTML = "";
-
-  const filteredProducts = productos.filter(product => product.name.toLowerCase().includes(searchTerm.toLowerCase()));
-
-  if (filteredProducts.length > 0) {
-    filteredProducts.forEach(product => {
-      const productElement = document.createElement("div");
-      productElement.innerHTML = `<h3>${product.name}</h3><p>Precio: $${product.precio.toFixed(2)}</p>`;
-      const addButton = document.createElement("button");
-      addButton.textContent = "Agregar al carrito";
-      addButton.addEventListener("click", () => {
-        agregarAlCarrito(product.id);
-      });
-      productElement.appendChild(addButton);
-      resultsContainer.appendChild(productElement);
-    });
-  } else {
-    resultsContainer.innerHTML = "No se encontraron resultados";
-  }
-}
-
-function mostrarProductos() {
-  const productosDiv = document.getElementById('productos');
-  productosDiv.innerHTML = '';
-
-  productos.forEach(producto => {
-    const productElement = document.createElement('div');
-    productElement.classList.add('card');
-    productElement.innerHTML = `
-      <img src="producto${producto.id}.jpg" alt="${producto.name}">
-      <h3>${producto.name}</h3>
-      <p>Precio: $${producto.precio.toFixed(2)}</p>
-      <button onclick="agregarAlCarrito(${producto.id})">Agregar al carrito</button>
-    `;
-
-    productosDiv.appendChild(productElement);
-  });
-}
 
 function agregarAlCarrito(idProducto) {
   const producto = productos.find(product => product.id === idProducto);
@@ -136,7 +97,6 @@ function cargarCarritoDesdeAlmacenamientoLocal() {
     carrito = JSON.parse(carritoGuardado);
   }
 }
-
 function actualizarTotal() {
   const totalElement = document.getElementById('total');
   let precioTotal = carrito.reduce((total, item) => total + item.producto.precio * item.cantidad, 0);
@@ -147,17 +107,38 @@ function actualizarTotal() {
 
   totalElement.textContent = precioTotal.toFixed(2);
 }
-
-document.getElementById('btn-comprar').addEventListener('click', () => {
-  carrito = [];
-  guardarCarritoEnAlmacenamientoLocal();
-  mostrarCarrito();
-  mostrarMensaje('¡Gracias por tu compra!');
-});
-
 function mostrarMensaje(mensaje) {
-  const mensajeDiv = document.getElementById('mensaje');
-  mensajeDiv.textContent = mensaje;
+  const mensajeElement = document.getElementById('mensaje');
+  mensajeElement.textContent = mensaje;
+  mensajeElement.style.display = 'block';
+}
+
+function comprar() {
+  carrito = []; 
+  guardarCarritoEnAlmacenamientoLocal(); 
+  mostrarCarrito(); 
+  mostrarMensaje('¡Gracias por preferirnos!'); 
+}
+
+const btnComprar = document.getElementById('btn-comprar');
+btnComprar.addEventListener('click', comprar);
+
+function mostrarProductos() {
+  const productosDiv = document.getElementById('productos');
+  productosDiv.innerHTML = '';
+
+  productos.forEach(producto => {
+    const productElement = document.createElement('div');
+    productElement.classList.add('card');
+    productElement.innerHTML = `
+      <img src="producto${producto.id}.jpg" alt="${producto.name}">
+      <h3>${producto.name}</h3>
+      <p>Precio: $${producto.precio.toFixed(2)}</p>
+      <button onclick="agregarAlCarrito(${producto.id})">Agregar al carrito</button>
+    `;
+
+    productosDiv.appendChild(productElement);
+  });
 }
 
 function mostrarCarrito() {
